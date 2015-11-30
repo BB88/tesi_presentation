@@ -6,7 +6,12 @@
 \usepackage{animate}
 \usepackage{wrapfig}
 \usepackage{multicol}
+%\setlength{\textwidth}{15cm}           %Sets the width of the printable area of the page to 15cm
+%\setlength{\topmargin}{0cm}            %Space from the toprule to the top of the text (first line) to 0 cm.
+%\setlength{\footskip}{0cm}               %Space from the bottom of the text to the footnote (or footrule) to 0 cm.
+\setlength{\marginparwidth}{0cm}   
 \setlength{\columnsep}{0cm}
+
 
 \definecolor{cvggreen}{RGB}{4,71,79}
 \mode<presentation>
@@ -32,27 +37,40 @@
 
 \begin{frame}[t]{\textsc{Contesto}}
 Numerose applicazioni di elaborazione di immagini e video richiedono esplicite informazioni sulla \textbf{profondit\`{a}} della scena:
+\setlength{\columnsep}{0cm}
 \begin{columns}
 \begin{column}{4cm}
 \begin{center}
-%	\textbf{Caratteristiche}:
-			\vspace*{0.5em}
-			%\begin{small}
-			\begin{itemize}
+\setbeamertemplate{blocks}[rounded][shadow=false]
+	\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray} 	
+\begin{block}{Campi applicativi}
+		\begin{itemize}
 			\item \small{Medicina} 
 			\item Robotica
 			\item Tracking
-			\item Industria manifetturiera
+			\item Industria manifatturiera
 			\item Cinema
-			\end{itemize}
-			%\end{small}
+		\end{itemize}	
+	\end{block}
+	
+%	\textbf{Caratteristiche}:
+%			\vspace*{0.5em}
+%			%\begin{small}
+%			\begin{itemize}
+%			\item \small{Medicina} 
+%			\item Robotica
+%			\item Tracking
+%			\item Industria manifetturiera
+%			\item Cinema
+%			\end{itemize}
+%			%\end{small}
 
 \end{center}
 \end{column}
 \begin{column}{6cm}
 \begin{figure}
 \centering
-\includegraphics[width=1\linewidth]{./img/dm.jpg}
+\includegraphics[width=1\linewidth]{./img/track.png}
 \end{figure}
 \end{column}
 \end{columns}
@@ -64,25 +82,88 @@ Numerose applicazioni di elaborazione di immagini e video richiedono esplicite i
 	\setbeamercolor{block title}{use=structure,fg=black,bg=lightgray} 
 	\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray} 	
 \begin{block}
-\centering
-
+	\center{Il \textbf{video stereoscopico} \`{e} ottenuto da due riprese con una \textbf{coppia di telecamere} adiacenti successivamente sovrapposte}
 \end{block}
-\movie[width=3cm,height=2cm,poster]{}{./img/alice.mp4}
+	\vspace{1em}
+\begin{center}
+\movie[width=8cm,height=5cm,autostart,loop,poster]{}{./img/alice.mp4}
+\end{center}
 \end{frame}
+
+
+
 
 
 \begin{frame}[t]{\textsc{Dispositivi di ripresa e visualizzazione}}
-	\vspace{1em}
+\begin{columns}
+\begin{column}{5cm}
+\begin{center}
+\setbeamertemplate{blocks}[rounded][shadow=false]
+	\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray} 
+	\setbeamerfont{block body}{size=\tiny}	
+\begin{block}{Sistema di ripresa stereo}
+		\begin{itemize}
+			\item  \small{Due telecamere sincronizzate}
+			\item \small{Correttamente allineate}
+			\item \small{Stessa calibrazione}
+		\end{itemize}	
+	\end{block}
+\end{center}
 \centering
-\includegraphics[width=1\linewidth]{./img/mah.png}
+\includegraphics[width=1\linewidth]{./img/display.png}
+\end{column}
+
+\begin{column}{5cm}
+
+\centering
+\vspace{0.7em}
+\includegraphics[width=1\linewidth]{./img/camere.png}
+\vspace{-2.8em}
+\begin{center}
+\setbeamertemplate{blocks}[rounded][shadow=false]
+	\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray} 		
+\begin{block}{Sistema di riproduzione}
+		\begin{itemize}
+			\item  \small{Attivo: lenti sincronizzate con il televisore}
+			\item \small{Passivo: lenti diversamente polarizzate}
+			\item \small{Anaglifico: lenti passive con filtri di colore diverso}
+		\end{itemize}	
+	\end{block}
+\end{center}
+\end{column}
+\end{columns}
 \end{frame}
 
-\begin{frame}[t]{\textsc{Necessit\`{a} di una marchiatura}}
 
+
+
+
+
+
+
+\begin{frame}[t]{\textsc{Necessit\`{a} di una marchiatura}}
+	\setbeamertemplate{blocks}[rounded][shadow=false]
+
+	\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray} 	
+\begin{center}
+\begin{block}{Precedenti motivazioni}
+\begin{itemize}
+\item  Sicurezza
+\item  Copyright
+\end{itemize}
+\end{block}
+\vspace{2em}
+\begin{block}{Nuove motivazioni}
+\begin{itemize}
+\item Migliorare la qualit\`{a} visiva dei contenuti marchiati utilizzando la particolarit\`{a} dei contenuti
+\end{itemize}
+\end{block}
+\end{center}
 \end{frame}
 
 
 \begin{frame}[t]{\textsc{Scopo di questa tesi}}
+
 
 \end{frame}
 
