@@ -19,7 +19,7 @@
 %Darmstadt
 \usetheme[]{Amsterdam}
 }
-\title{Marchiatura digitale di sequenze video stereoscopiche a disparit\`{a} coerente}
+\title{Marchiatura digitale a disparit\`{a} coerente di sequenze video stereoscopiche}
 \author{Benedetta Barbetti\\ 
 		Michaela Servi}
 \institute{Universit\`{a} degli studi di Firenze}
@@ -36,7 +36,8 @@
 \subsection{Video Stereoscopici}
 
 \begin{frame}[t]{\textsc{Contesto}}
-Numerose applicazioni di elaborazione di immagini e video richiedono esplicite informazioni sulla \textbf{profondit\`{a}} della scena:
+\centering
+Numerose applicazioni di elaborazione di immagini e video richiedono esplicite informazioni sulla \textbf{profondit\`{a}} della scena. La \textbf{stereoscopia} permette di ottenere queste informazioni.
 \setlength{\columnsep}{0cm}
 \begin{columns}
 \begin{column}{4cm}
@@ -77,21 +78,34 @@ Numerose applicazioni di elaborazione di immagini e video richiedono esplicite i
 \end{frame}
 
 
+\begin{frame}[t]{\textsc{Stereoscopia}}
+\vspace{-1em}
+\begin{center}
+	\setbeamertemplate{blocks}[rounded][shadow=false]
+	\setbeamercolor{block title}{use=structure,fg=black,bg=lightgray} 
+	\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray} 		
+\begin{block}{}
+	\center Tecnica di realizzazione e visione di immagini e filmati, atta a trasmettere una illusione di \textbf{tridimensionalit\`{a}}, analoga a quella generata dalla visione binoculare del sistema visivo umano
+	\end{block}
+\end{center}
+\begin{center}
+\includegraphics[width=0.7\linewidth]{./img/stereo.png}
+\end{center}
+\end{frame}
+
 \begin{frame}[t]{\textsc{Video Stereoscopici}}
 	\setbeamertemplate{blocks}[rounded][shadow=false]
 	\setbeamercolor{block title}{use=structure,fg=black,bg=lightgray} 
 	\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray} 	
+		\vspace{-0.5em}
 \begin{block}
-	\center{Il \textbf{video stereoscopico} \`{e} ottenuto da due riprese con una \textbf{coppia di telecamere} adiacenti successivamente sovrapposte}
-\end{block}
-	\vspace{1em}
+	\center{Il \textbf{video stereoscopico} \`{e} ottenuto inquadrando la stessa scena da due punti di vista diversi con una \textbf{coppia di telecamere}}
+\end{block} 
+	\vspace{0.5em}
 \begin{center}
 \movie[width=8cm,height=5cm,autostart,loop,poster]{}{./img/alice.mp4}
 \end{center}
 \end{frame}
-
-
-
 
 
 \begin{frame}[t]{\textsc{Dispositivi di ripresa e visualizzazione}}
@@ -134,13 +148,6 @@ Numerose applicazioni di elaborazione di immagini e video richiedono esplicite i
 \end{columns}
 \end{frame}
 
-
-
-
-
-
-
-
 \begin{frame}[t]{\textsc{Necessit\`{a} di una marchiatura}}
 	\setbeamertemplate{blocks}[rounded][shadow=false]
 	\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray} 	
@@ -163,28 +170,23 @@ Numerose applicazioni di elaborazione di immagini e video richiedono esplicite i
 
 
 \begin{frame}[t]{\textsc{Scopo di questa tesi}}
+	\setbeamertemplate{blocks}[rounded][shadow=false]
+	\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray} 	
+\begin{center}
+\begin{block}{}
 
+\end{block}
+\vspace{1em}
+\begin{block}{Nuove motivazioni}
 
+\end{block}
+\end{center}
 \end{frame}
 
 \end{section}
 
 \begin{section}{Stereoscopia}
 \subsection{Principi della stereoscopia}
-\begin{frame}[t]{\textsc{Stereoscopia}}
-\vspace{-1em}
-\begin{center}
-	\setbeamertemplate{blocks}[rounded][shadow=false]
-	\setbeamercolor{block title}{use=structure,fg=black,bg=lightgray} 
-	\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray} 		
-\begin{block}{}
-	\center Tecnica di realizzazione e visione di immagini e filmati, atta a trasmettere una illusione di \textbf{tridimensionalit\`{a}}, analoga a quella generata dalla visione binoculare del sistema visivo umano
-	\end{block}
-\end{center}
-\begin{center}
-\includegraphics[width=0.7\linewidth]{./img/stereo.png}
-\end{center}
-\end{frame}
 
 \begin{frame}[t]{\textsc{Background}}
 
@@ -193,7 +195,7 @@ Numerose applicazioni di elaborazione di immagini e video richiedono esplicite i
 \includegraphics[width=1.1\linewidth]{./img/rect.png}
 
 \begin{itemize}
-\item[1.] \small{Calibrazione parametri interni ed esterni
+\item[1.] \small{Calibrazione parametri intriseci ed estrinseci
 \item[2.] Rettificazione
 \item[3.] Calcolo delle corrispondenze
 \item[4.] Computazione mappa di disparit\`{a}}
@@ -205,7 +207,7 @@ Numerose applicazioni di elaborazione di immagini e video richiedono esplicite i
 \includegraphics[width=0.8\linewidth]{./img/depth.jpg}
 
 \begin{itemize}
-\item \small{ Triangolazione}:
+\item \small{Triangolazione}:
 
 \begin{center}
  $\frac{B}{Z} = \frac{(B+x_{L}) - x_{R}}{Z-f}$,
@@ -245,7 +247,7 @@ $Z = \frac{B \cdot f}{x_{L} - x_{R}} = \frac{B \cdot f}{d}$
 	\setbeamercolor{block title}{use=structure,fg=black,bg=lightgray} 
 	\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray}
 \begin{block}{}
-\center \small{In questa tesi è stato utilizzato l'algoritmo di Kolmogorov and Zabih \textbf{Graph Cuts Stereo Matching Algorithm} per il calcolo della mappa di disparit\`{a}}
+\center \small{In questa tesi \`{e} stato utilizzato l'algoritmo di Kolmogorov and Zabih \textbf{Graph Cuts Stereo Matching Algorithm} per il calcolo della mappa di disparit\`{a}}
 \end{block}
 \end{center}
 \end{frame}
