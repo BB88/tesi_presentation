@@ -103,9 +103,9 @@ Numerose applicazioni di elaborazione di immagini e video richiedono esplicite i
 	\setbeamerfont{block body}{size=\tiny}	
 \begin{block}{Sistema di ripresa stereo}
 		\begin{itemize}
-			\item  \small{Due telecamere sincronizzate}
-			\item \small{Correttamente allineate}
-			\item \small{Stessa calibrazione}
+			\item  \small{Due telecamere sincronizzate
+			\item Correttamente allineate
+			\item Stessa calibrazione}
 		\end{itemize}	
 	\end{block}
 \end{center}
@@ -124,9 +124,9 @@ Numerose applicazioni di elaborazione di immagini e video richiedono esplicite i
 	\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray} 		
 \begin{block}{Sistema di riproduzione}
 		\begin{itemize}
-			\item  \small{Attivo: lenti sincronizzate con il televisore}
-			\item \small{Passivo: lenti diversamente polarizzate}
-			\item \small{Anaglifico: lenti passive con filtri di colore diverso}
+			\item  \small{Attivo: lenti sincronizzate con il televisore
+			\item Passivo: lenti diversamente polarizzate
+			\item Anaglifico: lenti passive con filtri di colore diverso}
 		\end{itemize}	
 	\end{block}
 \end{center}
@@ -143,7 +143,6 @@ Numerose applicazioni di elaborazione di immagini e video richiedono esplicite i
 
 \begin{frame}[t]{\textsc{Necessit\`{a} di una marchiatura}}
 	\setbeamertemplate{blocks}[rounded][shadow=false]
-
 	\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray} 	
 \begin{center}
 \begin{block}{Precedenti motivazioni}
@@ -152,10 +151,11 @@ Numerose applicazioni di elaborazione di immagini e video richiedono esplicite i
 \item  Copyright
 \end{itemize}
 \end{block}
-\vspace{2em}
+\vspace{1em}
 \begin{block}{Nuove motivazioni}
 \begin{itemize}
-\item Migliorare la qualit\`{a} visiva dei contenuti marchiati utilizzando la particolarit\`{a} dei contenuti
+\item Poco nello stato dell'arte
+\item Migliorare la qualit\`{a} visiva dei contenuti marchiati utilizzando la particolarit\`{a} dei contenuti 3D
 \end{itemize}
 \end{block}
 \end{center}
@@ -172,12 +172,86 @@ Numerose applicazioni di elaborazione di immagini e video richiedono esplicite i
 \begin{section}{Stereoscopia}
 \subsection{Principi della stereoscopia}
 \begin{frame}[t]{\textsc{Stereoscopia}}
-
+\vspace{-1em}
+\begin{center}
+	\setbeamertemplate{blocks}[rounded][shadow=false]
+	\setbeamercolor{block title}{use=structure,fg=black,bg=lightgray} 
+	\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray} 		
+\begin{block}{}
+	\center Tecnica di realizzazione e visione di immagini e filmati, atta a trasmettere una illusione di \textbf{tridimensionalit\`{a}}, analoga a quella generata dalla visione binoculare del sistema visivo umano
+	\end{block}
+\end{center}
+\begin{center}
+\includegraphics[width=0.7\linewidth]{./img/stereo.png}
+\end{center}
 \end{frame}
 
+\begin{frame}[t]{\textsc{Background}}
+
+\begin{columns}
+\begin{column}{5cm}
+\includegraphics[width=1.1\linewidth]{./img/rect.png}
+
+\begin{itemize}
+\item[1.] \small{Calibrazione parametri interni ed esterni
+\item[2.] Rettificazione
+\item[3.] Calcolo delle corrispondenze
+\item[4.] Computazione mappa di disparit\`{a}}
+\end{itemize}
+
+\end{column}
+
+\begin{column}{5cm}
+\includegraphics[width=0.8\linewidth]{./img/depth.jpg}
+
+\begin{itemize}
+\item \small{ Triangolazione}:
+
+\begin{center}
+ $\frac{B}{Z} = \frac{(B+x_{L}) - x_{R}}{Z-f}$,
+$Z = \frac{B \cdot f}{x_{L} - x_{R}} = \frac{B \cdot f}{d}$
+\end{center}
+
+
+\item  $ d = x_{L} - x_{R} $ \`{e} la disparit\`{a} 
+\end{itemize}
+
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}[t]{\textsc{Corrispondenze e mappa di disparit\`{a}}}
+
+
+\begin{columns}
+\begin{column}{5cm}
+\vspace{1em}
+\begin{itemize}
+\item \small{Metodi locali: calcolano un valore di similarit\`{a} (MSE, NCC..) all'interno di una finestra  
+\item Metodi globali: minimizzano su tutta l'immagine una funzione di energia che racchiude le assunzioni di corrispondenza
+}
+\end{itemize}
+\end{column}
+\begin{column}{5cm}
+\vspace{1.5em}
+\centering
+\includegraphics[width=1\linewidth]{./img/gc.png}
+\end{column}
+\end{columns}
+\vspace{-1em}
+\begin{center}
+	\setbeamertemplate{blocks}[rounded][shadow=false]
+	\setbeamercolor{block title}{use=structure,fg=black,bg=lightgray} 
+	\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray}
+\begin{block}{}
+\center \small{In questa tesi è stato utilizzato l'algoritmo di Kolmogorov and Zabih \textbf{Graph Cuts Stereo Matching Algorithm} per il calcolo della mappa di disparit\`{a}}
+\end{block}
+\end{center}
+\end{frame}
+
+
 \end{section}
-
-
 \begin{section}{Watermarking}
 \subsection {Principi del watermarking}
 \begin{frame}[t]{\textsc{Watermarking}}
