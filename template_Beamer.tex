@@ -17,7 +17,7 @@
 \mode<presentation>
 {
 %Darmstadt
-\usetheme[]{Amsterdam}
+\usetheme[compress]{Amsterdam}
 }
 \title{Marchiatura digitale di sequenze video stereoscopiche a disparit\`{a} coerente }
 \author{Benedetta Barbetti,\\ 
@@ -292,7 +292,7 @@ $Z = \frac{B \cdot f}{x_{L} - x_{R}} = \frac{B \cdot f}{d}$
 \end{column}
 \begin{column}{5cm}
 \centering
-\includegraphics[width=0.9\linewidth]{./img/wat_workflow.jpg}
+\includegraphics[width=1.1\linewidth]{./img/wat_workflow.jpg}
 \end{column}
 \end{columns}
 \end{frame}
@@ -336,6 +336,7 @@ $Z = \frac{B \cdot f}{x_{L} - x_{R}} = \frac{B \cdot f}{d}$
 \end{frame}
 
 \subsection{Robustezza}
+\vspace{2em}
 \begin{frame}[t]{\textsc{View Synthesis}}
 
 	\setbeamertemplate{blocks}[rounded][shadow=false]
@@ -344,7 +345,7 @@ $Z = \frac{B \cdot f}{x_{L} - x_{R}} = \frac{B \cdot f}{d}$
 \begin{block}{}
 \center \small{ Dato un insieme di immagini della stessa scena ottenute da diversi punti di vista, una \textbf{nuova immagine} viene \textbf{creata} considerando una \textbf{camera virtuale} posizionata in un diverso punto dello spazio}
 \end{block}
-\vspace{1em}
+\vspace{2em}
 \centering
 \includegraphics[width=1\linewidth]{./img/nvs.jpg}
 \end{frame}
@@ -374,6 +375,7 @@ Data l'immagine $\mathbf{I'}$ ritenuta marchiata viene calcolata la correlazione
 
 \subsection{Domini di inserimento}
 \begin{frame}[t]{\textsc{Inserimento in DFT}}
+\vspace{1em}
 \centering
 \includegraphics[width=1\linewidth]{./img/dft.png}
 \begin{itemize}
@@ -384,7 +386,7 @@ Data l'immagine $\mathbf{I'}$ ritenuta marchiata viene calcolata la correlazione
 \vspace{-2.3em}
  \begin{align*} 
 \qquad \mathbf{v'_{i} = v_i + \alpha w_{i}}\\
-\mathbf{v'_{i} = v_i + \alpha w_{i}}
+\mathbf{v'_{i} = v_i + \alpha v_i  w_{i}}
 \end{align*}
 \vspace{-2.5em}
 \item Ritorno al dominio spaziale con la trasformata inversa
