@@ -19,8 +19,8 @@
 %Darmstadt
 \usetheme[]{Amsterdam}
 }
-\title{Marchiatura digitale a disparit\`{a} coerente di sequenze video stereoscopiche}
-\author{Benedetta Barbetti\\ 
+\title{Marchiatura digitale di sequenze video stereoscopiche a disparit\`{a} coerente }
+\author{Benedetta Barbetti,\\ 
 		Michaela Servi}
 \institute{Universit\`{a} degli studi di Firenze}
 \date{10 Dicembre 2015}
@@ -176,7 +176,7 @@ Numerose applicazioni di elaborazione di immagini e video richiedono esplicite i
 	\setbeamertemplate{blocks}[rounded][shadow=false]
 	\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray} 	
 \begin{center}
-\begin{block}{Algoritmo di marchiatura spaziale a disparit\`{a} coerente}
+\begin{block}{Algoritmo di marchiatura a disparit\`{a} coerente nel dominio spaziale}
 Raggiungere lo stato dell'arte nel campo della marchiatura di video stereoscopici
 \end{block}
 \vspace{1em}
@@ -189,7 +189,7 @@ Migliorare le tecniche gi\`{a} esistenti lavorando in un dominio che presenta nu
 
 \end{section}
 
-\begin{section}{Stereoscopia}
+\begin{section}{Concetti base}
 \subsection{Principi della stereoscopia}
 
 \begin{frame}[t]{\textsc{Background}}
@@ -256,13 +256,144 @@ $Z = \frac{B \cdot f}{x_{L} - x_{R}} = \frac{B \cdot f}{d}$
 \end{center}
 \end{frame}
 
+\begin{frame}[t]{\textsc{Mappa di Disparit\`{a}: codifica}}
+\begin{columns}
+\hspace*{-4em}
+\begin{column}{4cm}
+\vspace{1em}
+\begin{itemize}
+\item  Codificata come un'immagine in scala di grigi
+\item  Punti pi\`{u} vicini alla telecamera sono pi\`{u} chiari e corrispondono a una disparit\`{a} maggiore 
 
-\end{section}
-\begin{section}{Watermarking}
+\end{itemize}
+\end{column}
+\hspace*{-3em}
+\begin{column}{6cm}
+
+\vspace{2em}
+
+\centering
+\includegraphics[width=1.2\linewidth]{./img/disparity.png}
+\end{column}
+\end{columns}
+\end{frame}
+
 \subsection {Principi del watermarking}
 \begin{frame}[t]{\textsc{Watermarking}}
+\begin{columns}
+\begin{column}{5cm}
+\vspace{1em}
+	\setbeamertemplate{blocks}[rounded][shadow=false]
+	\setbeamercolor{block title}{use=structure,fg=black,bg=lightgray} 
+	\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray}
+\begin{block}{}
+\center \small{Il \textbf{watermarking digitale} consiste nell'\textbf{inserimento} di \textbf{informazione} in contenuti  multimediali digitali in modo tale che questa informazione possa essere successivamente \textbf{estratta} o individuata per investigare possibili \textbf{manipolazioni} del contenuto ed eventuali violazioni del \textbf{copyright}}
+\end{block}
+\end{column}
+\begin{column}{5cm}
+\centering
+\includegraphics[width=0.9\linewidth]{./img/wat_workflow.jpg}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[t]{\textsc{Nozioni generali}}
+\begin{columns}
+\begin{column}{5cm}
+\vspace{1em}
+	\setbeamertemplate{blocks}[rounded][shadow=false]
+	\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray}
+\begin{block}{Classificazione delle tecniche}
+\begin{itemize}
+\item Blind/Non blind
+\item Privata/Pubblica
+\item A lettura/A rilevamento
+\end{itemize}
+\end{block}
+\end{column}
+\begin{column}{5cm}
+\vspace{1em}
+	\setbeamertemplate{blocks}[rounded][shadow=false]
+	\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray}
+\begin{block}{Requisiti del watermark}
+\begin{itemize}
+\item Trasparenza
+\item Robustezza
+\item Capacit\`{a}
+\end{itemize}
+\end{block}
+\end{column}
+\end{columns}
+\vspace{1em}
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray}
+\begin{block}{Domini e tecniche di inserimento}
+\begin{itemize}
+\item Spaziale/ Frequenza(DFT, DCT, DWT)
+\item Spread Spectrum/ Side Information
+\end{itemize}
+\end{block}
+\end{frame}
+
+\subsection{Robustezza}
+\begin{frame}[t]{\textsc{View Synthesis}}
+
+	\setbeamertemplate{blocks}[rounded][shadow=false]
+	\setbeamercolor{block title}{use=structure,fg=black,bg=lightgray} 
+	\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray}
+\begin{block}{}
+\center \small{ Dato un insieme di immagini della stessa scena ottenute da diversi punti di vista, una \textbf{nuova immagine} viene \textbf{creata} considerando una \textbf{camera virtuale} posizionata in un diverso punto dello spazio}
+\end{block}
+\vspace{1em}
+\centering
+\includegraphics[width=1\linewidth]{./img/nvs.jpg}
+\end{frame}
+
+\subsection{Tecniche di inserimento}
+\begin{frame}[t]{\textsc{Spread Spectrum nel dominio spaziale}}
+\begin{columns}
+\begin{column}{5cm}
+	\setbeamertemplate{blocks}[rounded][shadow=false]
+	\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray}
+\begin{block}{Codifica}
+\centering Un pattern di rumore pseudo-random viene sommato al valore di luminanza di tutti i pixel dell'immagine
+$ \mathbf{I_{w}(x,y) = I(x,y) + \alpha w(x,y)}$
+\end{block}
+\begin{block}{Detection}
+Data l'immagine $\mathbf{I'}$ ritenuta marchiata viene calcolata la correlazione con il marchio $\mathbf{w}$
+\end{block}
+\end{column}
+\begin{column}{5cm}
+\vspace{1.5em}
+\centering
+\includegraphics[width=1\linewidth]{./img/ss.png}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\subsection{Domini di inserimento}
+\begin{frame}[t]{\textsc{Inserimento in DFT}}
+\centering
+\includegraphics[width=1\linewidth]{./img/dft.png}
+\begin{itemize}
+\item Trasformazione immagine con Discrete Fourier Transform
+\item Selezione di n coefficienti $\mathbf{v_i}$ (medie frequenze)
+\item Generazione di una sequenza pseudo-random $\mathbf{w}$
+\item Modifica dei coefficienti: 
+\vspace{-2.3em}
+ \begin{align*} 
+\qquad \mathbf{v'_{i} = v_i + \alpha w_{i}}\\
+\mathbf{v'_{i} = v_i + \alpha w_{i}}
+\end{align*}
+\vspace{-2.5em}
+\item Ritorno al dominio spaziale con la trasformata inversa
+\end{itemize}
 
 \end{frame}
+
+
+
 
 
 \end{section}
@@ -282,8 +413,5 @@ $Z = \frac{B \cdot f}{x_{L} - x_{R}} = \frac{B \cdot f}{d}$
 
 \end{frame}
 \end{section}
-
-
-
 
 \end{document}
