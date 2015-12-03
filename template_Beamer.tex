@@ -185,15 +185,21 @@ Numerose applicazioni di elaborazione di immagini e video richiedono esplicite i
 
 
 \begin{frame}[t]{\textsc{Scopo di questa tesi}}
-	\setbeamertemplate{blocks}[rounded][shadow=false]
-	\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray} 	
+\vspace{2em}
+
+\begin{itemize}
+\item \textbf{Algoritmo di marchiatura a disparit\`{a} coerente nel dominio spaziale}
+\end{itemize}
+\begin{itemize}
+\item \textbf{Algoritmo di marchiatura a disparit\`{a} coerente nel dominio della frequenza
+}
+\end{itemize}
 \begin{center}
-\begin{block}{Algoritmo di marchiatura a disparit\`{a} coerente nel dominio spaziale}
-Raggiungere lo stato dell'arte nel campo della marchiatura di video stereoscopici
-\end{block}
-\vspace{1em}
-\begin{block}{Algoritmo di marchiatura a disparit\`{a} coerente nel dominio della frequenza}
-Migliorare le tecniche gi\`{a} esistenti lavorando in un dominio che presenta numerosi vantaggi
+	\setbeamertemplate{blocks}[rounded][shadow=false]
+	\setbeamercolor{block title}{use=structure,fg=black,bg=lightgray} 
+	\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray}
+\begin{block}{}
+\center \small{Watermarking \textbf{a disparit\`{a} coerente}: un punto fisico della scena ripresa deve \textit{portare} lo stesso campione di watermark indipendentemente che esso appaia nella vista sinistra o destra }
 \end{block}
 \end{center}
 \end{frame}
@@ -314,7 +320,7 @@ $Z = \frac{B \cdot f}{x_{L} - x_{R}} = \frac{B \cdot f}{d}$
 \end{column}
 \begin{column}{5cm}
 \centering
-\includegraphics[width=1.1\linewidth]{./img/wat_workflow.jpg}
+\includegraphics[width=1\linewidth]{./img/wat_workflow.jpg}
 \end{column}
 \end{columns}
 \end{frame}
@@ -416,17 +422,7 @@ $Z = \frac{B \cdot f}{x_{L} - x_{R}} = \frac{B \cdot f}{d}$
 %\end{itemize}
 %\end{frame}
 
-
-\end{section}
-\begin{section}{Stato dell'Arte}
 \subsection{Watermarking di video stereoscopici}
-\begin{frame}[t]{\textsc{Stato dell'arte}}
-\vspace{1em}
-\begin{figure}
-\includegraphics[keepaspectratio=true,width=0.5\linewidth]{./img/views_domain.jpeg}
-\end{figure}
-\end{frame}
-
 
 % % % % % % % % % % FRAME % % % % % % % % % % % % %
 
@@ -434,16 +430,18 @@ $Z = \frac{B \cdot f}{x_{L} - x_{R}} = \frac{B \cdot f}{d}$
 \begin{frame}[t]{\textsc{Metodi a Disparit\`{a} Coerente}}
 \vspace{1em}
 \centering
-Watermarking \textbf{a disparit\`{a} coerente}: un punto fisico della scena ripresa deve \textit{portare} lo stesso campione di watermark indipendentemente che esso appaia nella vista sinistra o destra 
+
 \begin{center}
 \begin{itemize}
-\item Sottoclasse dei metodi view-based
+
+\item Marchiatura della \textbf{coppia stereo}
+\item \textbf{Punti corrispondenti} nelle due viste presentano lo \textbf{stesso} campione del \textbf{marchio}
+\item Il watermark viene modificato in base alla disparit\`{a} prima di essere inserito nella vista destra 
 \item Vantaggi:
 	\begin{itemize}
 	\item Migliore \textbf{qualit\`{a} visiva}
 	\item Maggior grado di \textbf{robustezza} contro attacchi di \textbf{view synthesis}
 	\end{itemize}
-\item Il watermark viene modificato in base alla disparit\`{a} prima di essere inserito nella vista destra 
 \end{itemize}
 \end{center}
 \end{frame}
