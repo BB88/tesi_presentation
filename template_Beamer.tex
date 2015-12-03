@@ -238,7 +238,7 @@ $Z = \frac{B \cdot f}{x_{L} - x_{R}} = \frac{B \cdot f}{d}$
 \begin{frame}[t]{\textsc{Mappa di Disparit\`{a}: codifica}}
 \begin{columns}
 \hspace*{-4em}
-\begin{column}{4.5cm}
+\begin{column}{5cm}
 \vspace{1em}
 \begin{itemize}
 \item  Codificata come un'immagine in scala di grigi
@@ -260,7 +260,7 @@ $Z = \frac{B \cdot f}{x_{L} - x_{R}} = \frac{B \cdot f}{d}$
 
 \begin{frame}[t]{\textsc{Mappa di Disparit\`{a}: computazione}}
 \begin{columns}
-\begin{column}{4.5cm}
+\begin{column}{5cm}
 \vspace{1em}
 \begin{itemize}
 \item \small{\textbf{Metodi locali}: calcolare un valore di similarit\`{a} (MSE, NCC..) all'interno di una finestra  
@@ -422,16 +422,9 @@ $Z = \frac{B \cdot f}{x_{L} - x_{R}} = \frac{B \cdot f}{d}$
 \subsection{Watermarking di video stereoscopici}
 \begin{frame}[t]{\textsc{Stato dell'arte}}
 \vspace{1em}
-\begin{columns}
-\begin{column}{5cm}
-
-\end{column}
-\begin{column}{5cm}
 \begin{figure}
-\includegraphics[width=0.85\linewidth]{./img/views_domain.jpeg}
+\includegraphics[keepaspectratio=true,width=0.5\linewidth]{./img/views_domain.jpeg}
 \end{figure}
-\end{column}
-\end{columns}
 \end{frame}
 
 
@@ -450,7 +443,7 @@ Watermarking \textbf{a disparit\`{a} coerente}: un punto fisico della scena ripr
 	\item Migliore \textbf{qualit\`{a} visiva}
 	\item Maggior grado di \textbf{robustezza} contro attacchi di \textbf{view synthesis}
 	\end{itemize}
-\item Il watermark viene inserito nella vista destra considerando la mappa di disparit\`{a}
+\item Il watermark viene modificato in base alla disparit\`{a} prima di essere inserito nella vista destra 
 \end{itemize}
 \end{center}
 \end{frame}
@@ -473,7 +466,7 @@ Watermarking \textbf{a disparit\`{a} coerente}: un punto fisico della scena ripr
 \begin{itemize}
 \item Metodo Spread Spectrum(\textbf{SS}):
 \begin{center}
-$\mathbf{f_{l}^{w} = f_{l}+\alpha w_{K}}$
+$\mathbf{l^{w} = l+\alpha w_{K}}$
 \end{center}
 \item Il marchio $\mathbf{w_{K}}$ segue $\sim N(0, 1)$, $\alpha \in \{1,3\}$
 \end{itemize}
@@ -485,7 +478,7 @@ $\mathbf{f_{l}^{w} = f_{l}+\alpha w_{K}}$
  $\mathbf{w^{*}_{K}(x,y) = w_{K}(x+d(x,y), y)}$
 \end{center}
 \item Inserito con SS:
-$ \mathbf{f_{r}^{w} = f_{r}+\alpha w^{*}_{K}}$
+$ \mathbf{r^{w} = r+\alpha w^{*}_{K}}$
 \end{itemize}
 \end{block}
 \end{column}
@@ -493,7 +486,7 @@ $ \mathbf{f_{r}^{w} = f_{r}+\alpha w^{*}_{K}}$
 \vspace{2em}
 \begin{center}
 \begin{figure}
-\includegraphics[width=0.9\linewidth]{/home/bene/Scrivania/p2.png}
+\includegraphics[width=0.9\linewidth]{./img/warp.png}
 \end{figure}
 \end{center}
 \end{column}
@@ -511,18 +504,17 @@ $ \mathbf{f_{r}^{w} = f_{r}+\alpha w^{*}_{K}}$
 \vspace{1em}
 \begin{block}{Decodifica vista sinistra}
 \begin{itemize}
-\item Metodo Spread Spectrum(\textbf{SS}):
-\begin{center}
-$\mathbf{f_{l}^{w} = f_{l}+\alpha w_{K}}$
-\end{center}
-\item Il marchio $\mathbf{w_{K}}$ segue $\sim N(0, 1)$, $\alpha \in \{1,3\}$
+\item Correlazione \textbf{vista sinistra} e \textbf{marchio originale}
 \end{itemize}
 \end{block}
 \begin{block}{Decodifica vista destra}
-Si puo' ottenere in due modi:
 \begin{itemize}
 \item[1.] Correlazione \textbf{vista destra} e \textbf{marchio distorto}
-\item[2.] Correlazione vista sinistra ricostruita attraverso la vista destra e il marchio originale
+\end{itemize}
+\vspace{-0.5em}
+oppure
+\begin{itemize}
+\item[2.] Correlazione \textbf{vista sinistra ricostruita} (attraverso vista destra e disparit\`{a}) e il marchio originale
 \end{itemize}
 \end{block}
 \end{column}
@@ -530,7 +522,7 @@ Si puo' ottenere in due modi:
 \vspace{2em}
 \begin{center}
 \begin{figure}
-\includegraphics[width=0.9\linewidth]{/home/bene/Scrivania/p2.png}
+\includegraphics[width=0.9\linewidth]{./img/warp2.png}
 \end{figure}
 \end{center}
 \end{column}
