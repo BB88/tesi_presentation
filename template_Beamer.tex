@@ -2,9 +2,13 @@
 \usepackage{beamerthemesplit}
 \usepackage{color}
 \usepackage{amsfonts}
+\usepackage{marvosym} % \MVRIGHTarrow
 \usepackage{multimedia}
 \usepackage{animate}
+\usepackage{xmpmulti}
 \usepackage{wrapfig}
+\usepackage{tikz}
+\usepackage{graphicx}
 \usepackage{multicol}
 %\setlength{\textwidth}{15cm}           %Sets the width of the printable area of the page to 15cm
 %\setlength{\topmargin}{0cm}            %Space from the toprule to the top of the text (first line) to 0 cm.
@@ -21,18 +25,27 @@
 %Darmstadt
 \usetheme[compress]{Amsterdam}
 }
-\title{Marchiatura digitale di sequenze video stereoscopiche a disparit\`{a} coerente }
-\author{Benedetta Barbetti,\\ 
-		Michaela Servi}
-\institute{Universit\`{a} degli studi di Firenze}
-\date{10 Dicembre 2015}
 
+\title{\textsc{\textbf{Marchiatura digitale di sequenze video stereoscopiche a disparit\`{a} coerente }}}
+\author{\textsc{Benedetta Barbetti,\\ 
+		Michaela Servi}}
+
+
+\institute{\begin{tabular}{l c l} 
+Relatori:      & \hspace{5cm} & Correlatori: \\
+Alessandro Piva  & \hspace{5cm}  & Pasquale Ferrara\\
+Carlo Colombo & \hspace{5cm}  & Francesca Uccheddu \\
+\end{tabular}\\
+\vspace{1em}Tesi Magistrale di Ingegneria Informatica \\Universit\`{a} degli Studi di Firenze }
+\date{\tiny{10 Dicembre 2015}}
 
 \begin{document}
 
+{\usebackgroundtemplate{\tikz\node[opacity=0.1] {\includegraphics[width=\paperwidth]{./img/logo.png}};}
 \begin{frame}
 \titlepage
 \end{frame}
+}
 
 \begin{section}{Introduzione}
 \subsection{Video Stereoscopici}
@@ -65,7 +78,6 @@ Numerose applicazioni di elaborazione di immagini e video richiedono esplicite i
 \end{column}
 \end{columns}
 \end{frame}
-
 
 % % % % % % % % % % FRAME % % % % % % % % % % % % %
 
@@ -151,57 +163,73 @@ Numerose applicazioni di elaborazione di immagini e video richiedono esplicite i
 % % % % % % % % % % FRAME % % % % % % % % % % % % %
 
 
-\begin{frame}[t]{\textsc{Necessit\`{a} di una marchiatura}}
-\setbeamertemplate{blocks}[rounded][shadow=false]
-%\setbeamercolor{block title}{use=structure,fg=black,bg=lightgray} 
-\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray} 
-\begin{columns}[T]
-\begin{column}[T]{5cm}
-\begin{center}
-\begin{block}{Generalmente}
+\begin{frame}[t]{\textsc{Necessit\`{a} di una protezione}}
+
 \begin{itemize}
 \item  Sicurezza
-\item  Copyright
+\item  Copyright 
 \end{itemize}
+ \hspace{50 mm}$\mathbb{\Longrightarrow}$
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamercolor{block title}{use=structure,fg=black,bg=lightgray} 
+\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray}
+\begin{block}{}
+\center \small{Il \textbf{watermarking digitale} consiste nell'\textbf{inserimento} di \textbf{informazione} in contenuti  multimediali digitali in modo tale che questa informazione possa essere successivamente \textbf{estratta} o individuata per investigare possibili \textbf{manipolazioni} del contenuto ed eventuali violazioni del \textbf{copyright}}
 \end{block}
-\end{center}
-\end{column}
-\begin{column}[T]{5cm}
-\begin{figure}
-  \includegraphics[width=1\textwidth]{./img/download.jpg}
-  \label{fig:rna_binding}
-\end{figure}
-\end{column}
-\end{columns}
-\begin{block}{Per i contenuti 3D}
 \begin{itemize}
-\item Cercare una soluzione pi\`{u} adatta alla particolarit\`{a} dei contenuti
+\item Diversit\`{a} di della coppia stereo 
 \item Scarsit\`{a} di soluzioni in letteratura
 \end{itemize}
-\end{block}
+\begin{columns}[T]
+\begin{column}[T]{6cm}
+\vspace{3em}
+
+\end{column}
+\begin{column}[T]{5cm}
+
+\end{column}
+\end{columns}
+
 \end{frame}
+
+
+
+
 
 % % % % % % % % % % FRAME % % % % % % % % % % % % %
 
 
 \begin{frame}[t]{\textsc{Scopo di questa tesi}}
-\vspace{2em}
-
-\begin{itemize}
-\item \textbf{Algoritmo di marchiatura a disparit\`{a} coerente nel dominio spaziale}
-\end{itemize}
-\begin{itemize}
-\item \textbf{Algoritmo di marchiatura a disparit\`{a} coerente nel dominio della frequenza
-}
-\end{itemize}
+\vspace{0.5em}
 \begin{center}
-	\setbeamertemplate{blocks}[rounded][shadow=false]
-	\setbeamercolor{block title}{use=structure,fg=black,bg=lightgray} 
-	\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray}
-\begin{block}{}
-\center \small{Watermarking \textbf{a disparit\`{a} coerente}: un punto fisico della scena ripresa deve \textit{portare} lo stesso campione di watermark indipendentemente che esso appaia nella vista sinistra o destra }
-\end{block}
+ \setbeamertemplate{blocks}[rounded][shadow=false]
+ 	\setbeamercolor{block title}{use=structure,fg=black,bg=lightgray} 
+ 	\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray}
+ \begin{block}{}
+ \center \large{Implementazione di un \textbf{sistema di marchiatura a disparit\`{a} coerente} per video stereoscopici}
+ \end{block}
 \end{center}
+\begin{columns}[T]
+\begin{column}[T]{5cm}
+Due approcci:
+\vspace{0.2em}
+\begin{itemize}
+\item nel dominio spaziale (Stato dell'Arte)\\
+\item \textbf{nel dominio della frequenza} 
+\end{itemize}
+\end{column}
+\begin{column}[T]{5cm}
+\vspace{0.2em}	
+\setbeamertemplate{blocks}[rounded][shadow=false]
+%	\setbeamercolor{block title}{use=structure,fg=black,bg=lightgray} 
+	\setbeamercolor{block body}{use=structure,fg=black,bg=lightgray}
+\begin{block}{\small{a disparit\`{a} coerente}}
+\center \small{un punto fisico della scena deve \textit{portare} lo stesso campione di watermark in entrambe le viste}
+\end{block}
+\end{column}
+\end{columns}
+
+
 \end{frame}
 
 
@@ -231,7 +259,7 @@ Numerose applicazioni di elaborazione di immagini e video richiedono esplicite i
  $\frac{B}{Z} = \frac{(B+x_{L}) - x_{R}}{Z-f}$,
 $Z = \frac{B \cdot f}{x_{L} - x_{R}} = \frac{B \cdot f}{d}$
 \end{center}
-\item  $ d = x_{L} - x_{R} $ \`{e} la disparit\`{a} 
+\item  $\mathbf{d = x_{L} - x_{R}} $ \`{e} la \textbf{disparit\`{a}} 
 \end{itemize}
 \end{column}
 \end{columns}
@@ -494,7 +522,7 @@ $ \mathbf{r^{w} = r+\alpha w^{*}_{K}}$
 % % % % % % % % % % FRAME % % % % % % % % % % % % %
 \subsection{Processo di decodifica}
 \begin{frame}[t]{\textsc{Marchiatura spaziale a disparit\`{a} coerente}}
-\vspace{-2em}
+\vspace{-0.5em}
 \begin{columns}
 \begin{column}{6cm}
 	\setbeamertemplate{blocks}[rounded][shadow=false]
@@ -512,7 +540,7 @@ $ \mathbf{r^{w} = r+\alpha w^{*}_{K}}$
 \vspace{-0.5em}
 oppure
 \begin{itemize}
-\item[2.] Correlazione \textbf{vista sinistra ricostruita} (attraverso vista destra e disparit\`{a}) e il marchio originale
+\item[2.] Correlazione \textbf{vista sinistra ricostruita} (attraverso vista destra e disparit\`{a}) e marchio originale
 \end{itemize}
 \end{block}
 \end{column}
