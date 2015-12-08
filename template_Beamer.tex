@@ -11,6 +11,7 @@
 \usepackage{graphicx}
 \usepackage{multicol}
 
+
 %\setlength{\textwidth}{15cm}           %Sets the width of the printable area of the page to 15cm
 %\setlength{\topmargin}{0cm}            %Space from the toprule to the top of the text (first line) to 0 cm.
 %\setlength{\footskip}{0cm}               %Space from the bottom of the text to the footnote (or footrule) to 0 cm.
@@ -621,9 +622,9 @@ oppure
 
 \begin{frame}[t]{\textsc{Marchiatura vista destra}}
 \textbf{Idea}: 
+\vspace{-0.8em}
 \begin{figure}
   \includegraphics[width=0.75\textwidth]{./img_wat/idea.jpg}
-  
   \label{fig:idea}
 \end{figure}
 \vspace{-3mm}
@@ -634,7 +635,7 @@ $\boldsymbol{ l =  \frac{1}{MN}\sum\sum(|L(u,v)|)\exp\{\phi (u,v)\} e^{\{-j2\pi(
   }
 \end{center}
 Dopo il processo di marchiatura: 
-\vspace{-1.5em}
+%\vspace{-1.5em}
 \begin{center}
   \scalebox{0.8}{%
 $\boldsymbol{ l_{w} = \frac{1}{MN}\sum\sum(|L(u,v)| + \alpha|L(u,v)||w|)e^{\{j(\phi_{L}+\phi{w})\}}e^{\{-j2\pi(\frac{ux}{M}+\frac{vy}{N})\}}} $
@@ -650,7 +651,7 @@ $\boldsymbol{ l_{w} = \frac{1}{MN}\sum\sum(|L(u,v)| + \alpha|L(u,v)||w|)e^{\{j(\
 \begin{block}{Problemi:}
 \center{\begin{itemize}
 \item La procedura di detection si aspetta in ingresso un'immagine del tipo:
-\vspace{-1em}
+%\vspace{1em}
 \begin{center}
   \scalebox{0.8}{%
 $\boldsymbol{ r_{w} = r + \frac{1}{MN}\sum\sum(\alpha|R(u,v)||w|e^{\{j(\phi_{R}+\phi{w})\}})e^{\{-j2\pi(\frac{ux}{M}+\frac{vy}{N})\}}} $
@@ -740,7 +741,7 @@ $\boldsymbol{ r_{w} = r + \frac{1}{MN}\sum\sum(\alpha|R(u,v)^{**}||w|e^{\{j(\phi
 Test effettuati su:
 \begin{itemize}
 \item sequenza video di 1 minuto creata dal \textbf{dataset Tsukuba}
-\item dimensioni frame
+\item frame stereo 1280x480
 \item frame rate 30
 \item group of picture 60
 \end{itemize}
@@ -777,14 +778,14 @@ Si studia la risposta del marchio in caso di creazione di viste sintetiche a tre
 \begin{tabular}{c | c | c }
 potenza marchio & livello di compressione & Detection stereo \\
 \hline \hline
-\rowcolor{LRed}  \textbf{1} & \textbf{1} & \textbf{80\%} \\
+\rowcolor{LRed}  \textbf{1} & \textbf{1} & \textbf{70\%} \\
 1 & 15 & 40\%\\
  1 & 25 & $< 20\% $\\
  1 & 30 & $< 20\% $ \\\hline
- 3 & 1 &  $ >90\% $\\
-3 & 15 &  $ >90\% $\\
- 3 & 25 & $ >90\% $\\
- 3 & 30 &  $ >90\% $ \\\hline
+ 3 & 1 &  $ >80\% $\\
+\rowcolor{LRed} \textbf{3} & \textbf{15} &  $ \boldsymbol{70\%} $\\
+ 3 & 25 & $ 30\% $\\
+ 3 & 30 &  $ <20\% $ \\\hline
 
 \end{tabular}
 }
@@ -837,9 +838,9 @@ livello di compressione & PSNR(dB) \\
 \begin{tabular}{c | c }
 potenza del marchio & Detection stereo \\
 \hline \hline
-0.3 & 1 \\
-0.5 & 6 \\
-\rowcolor{LRed} \textbf{0.6} & \textbf{11}\\
+0.3 & $<20\%$ \\
+0.5 & 20\% \\
+\rowcolor{LRed} \textbf{0.6} & \textbf{37\%}\\
 \end{tabular}
 }
 \vspace{2mm}
@@ -850,11 +851,21 @@ potenza del marchio & Detection stereo \\
 \begin{frame}[t]{\textsc{Sintetizzazione di viste intermedie}}
 
 \begin{figure}
-\vspace{1mm}
-  \includegraphics[width=1.1\textwidth]{./img_wat/synt.jpg}  
+  \includegraphics[width=0.6\textwidth]{./img/sintesi.png}  
   \caption{} 
   \label{fig:vsg1}
 \end{figure}
+\vspace{-3em}
+\begin{table}
+\scalebox{0.9}{
+\begin{tabular}{c  c  c 	c }
+ & vista 1/4B & vista 1/2B & vista 3/4B \\
+\hline
+Detection spaziale & $>90\%$  & $>80\% $  & $>80\% $  \\
+Detection in frequenza & 100\% & 100\% & $>90\%$ \\	
+\end{tabular}
+}
+\end{table}
 
 
 \end{frame}
@@ -930,7 +941,7 @@ $ Q_{Depth}(x,y) = [l(x,y)]^{\alpha} \cdot [c(x,y)]^{\beta} \cdot [\mathbf{{S}_{
 \item valori tipici per video marchiati sono tra 30 e 50 dB
 \end{itemize}
 \end{block}
-
+\vspace{4mm}
 \begin{table}
 \scalebox{0.8}{
 \begin{tabular}{c | c }
@@ -941,7 +952,7 @@ potenza del marchio & PSNR(dB) \\
 \textbf{0.6}		    & \textbf{45.9291} \\
 \end{tabular}
 }
-\vspace{2mm}
+
 \end{table}
 \end{frame}
 
@@ -1032,10 +1043,6 @@ CRF & potenza del marchio & detection stereo \\
 \end{figure}
 \end{frame}
 
-\begin{frame}[t]{\textsc{Sviluppi futuri}}
-
-
-\end{frame}
 
 
 \begin{frame}[t]{\textsc{Video stereo marchiato con potenza 0.3 compresso a fattore 15
