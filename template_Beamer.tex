@@ -11,6 +11,7 @@
 \usepackage{graphicx}
 \usepackage{multicol}
 
+
 %\setlength{\textwidth}{15cm}           %Sets the width of the printable area of the page to 15cm
 %\setlength{\topmargin}{0cm}            %Space from the toprule to the top of the text (first line) to 0 cm.
 %\setlength{\footskip}{0cm}               %Space from the bottom of the text to the footnote (or footrule) to 0 cm.
@@ -630,14 +631,14 @@ oppure
 Se consideriamo l'immagine  $\mathbf{l}$ scritta in funzione della sua trasformata  $\mathbf{L}$ :
 \begin{center}
   \scalebox{0.8}{%
-$\boldsymbol{ l =  \frac{1}{MN}\sum\sum(|L(u,v)|)\exp\{\phi (u,v)\} \exp\{-j2\pi(\frac{ux}{M}+\frac{vy}{N})\}  }$
+$\boldsymbol{ l =  \frac{1}{MN}\sum\sum(|L(u,v)|)e^{\{\phi (u,v)\}} e^{\{-j2\pi(\frac{ux}{M}+\frac{vy}{N})\}}  }$
   }
 \end{center}
 Dopo il processo di marchiatura: 
-\vspace{-1.5em}
+%\vspace{-1.5em}
 \begin{center}
   \scalebox{0.8}{%
-$\boldsymbol{ l_{w} = \frac{1}{MN}\sum\sum(|L(u,v)| + \alpha|L(u,v)||w|)\exp\{j(\phi_{L}+\phi_{w})\}\exp\{-j2\pi(\frac{ux}{M}+\frac{vy}{N})\}} $
+$\boldsymbol{ l_{w} = \frac{1}{MN}\sum\sum(|L(u,v)| + \alpha|L(u,v)||w|)e^{\{j(\phi_{L}+\phi{w})\}}e^{\{-j2\pi(\frac{ux}{M}+\frac{vy}{N})\}}} $
   }
 \end{center}
 
@@ -650,17 +651,17 @@ $\boldsymbol{ l_{w} = \frac{1}{MN}\sum\sum(|L(u,v)| + \alpha|L(u,v)||w|)\exp\{j(
 \begin{block}{Problemi:}
 \center{\begin{itemize}
 \item La procedura di detection si aspetta in ingresso un'immagine del tipo:
-\vspace{-1em}
+%\vspace{1em}
 \begin{center}
   \scalebox{0.8}{%
-$\boldsymbol{ r_{w} = r + \frac{1}{MN}\sum\sum(\alpha|R(u,v)||w|\exp\{j(\phi_{R}+\phi_{w})\})\exp\{-j2\pi(\frac{ux}{M}+\frac{vy}{N})\}} $
+$\boldsymbol{ r_{w} = r + \frac{1}{MN}\sum\sum(\alpha|R(u,v)||w|e^{\{j(\phi_{R}+\phi{w})\}})e^{\{-j2\pi(\frac{ux}{M}+\frac{vy}{N})\}}} $
   }
 \end{center}
 \item L'alterazione estratta dalla vista sinistra \`{e} del tipo:
 %\vspace{-2mm}
 \begin{center}
   \scalebox{0.8}{%
-$\boldsymbol{ \alpha|L||w|exp\{j(\phi_{L}+\phi{w})\}} $
+$\boldsymbol{ \alpha|L||w|e^{\{j(\phi_{L}+\phi{w})\}}} $
   }
 \end{center}
 \end{itemize}}
@@ -680,7 +681,7 @@ $\boldsymbol{ \alpha|L||w|exp\{j(\phi_{L}+\phi{w})\}} $
 Il marchio inserito nella vista destra \`{e} quindi:
 \begin{center}
   \scalebox{1}{%
-$\boldsymbol{  \alpha|R^{**}||w|exp\{j(\phi_{L}+\phi{w})\} }$
+$\boldsymbol{  \alpha|R^{**}||w|e^{\{j(\phi_{L}+\phi{w})\}} }$
   }
 \end{center}
 \vspace{3mm}
@@ -692,14 +693,14 @@ Le formule complete sono:
 \begin{block}{}
 \begin{center}
   \scalebox{0.9}{%
-$\boldsymbol{ l_{w} = l + \frac{1}{MN}\sum\sum(\alpha|L(u,v)||w|\exp\{j(\phi_{L}+\phi_{w})\})\exp\{-j2\pi(\frac{ux}{M}+\frac{vy}{N})\} }$
+$\boldsymbol{ l_{w} = l + \frac{1}{MN}\sum\sum(\alpha|L(u,v)||w|e^{\{j(\phi_{L}+\phi_{w})\}})e^{\{-j2\pi(\frac{ux}{M}+\frac{vy}{N})\}} }$
 
   }
 \end{center}
 \begin{center}
   \scalebox{0.9}{%
 
-$\boldsymbol{ r_{w} = r + \frac{1}{MN}\sum\sum(\alpha|R(u,v)^{**}||w|e^{\{j(\phi_{L}+\phi_{w})\})^{*}}e^{\{-j2\pi(\frac{ux}{M}+\frac{vy}{N})\} }}$
+$\boldsymbol{ r_{w} = r + \frac{1}{MN}\sum\sum(\alpha|R(u,v)^{**}||w|e^{\{j(\phi_{L}+\phi_{w})\}})^{*}e^{\{-j2\pi(\frac{ux}{M}+\frac{vy}{N})\} }}$
   }
 \end{center}
 \end{block}
@@ -740,7 +741,7 @@ $\boldsymbol{ r_{w} = r + \frac{1}{MN}\sum\sum(\alpha|R(u,v)^{**}||w|e^{\{j(\phi
 Test effettuati su:
 \begin{itemize}
 \item sequenza video di 1 minuto creata dal \textbf{dataset Tsukuba}
-\item dimensioni frame
+\item frame stereo 1280x480
 \item frame rate 30
 \item group of picture 60
 \end{itemize}
@@ -777,14 +778,14 @@ Si studia la risposta del marchio in caso di creazione di viste sintetiche a tre
 \begin{tabular}{c | c | c }
 potenza marchio & livello di compressione & Detection stereo \\
 \hline \hline
-\rowcolor{LRed}  \textbf{1} & \textbf{1} & \textbf{80\%} \\
+\rowcolor{LRed}  \textbf{1} & \textbf{1} & \textbf{70\%} \\
 1 & 15 & 40\%\\
  1 & 25 & $< 20\% $\\
  1 & 30 & $< 20\% $ \\\hline
- 3 & 1 &  $ >90\% $\\
-3 & 15 &  $ >90\% $\\
- 3 & 25 & $ >90\% $\\
- 3 & 30 &  $ >90\% $ \\\hline
+ 3 & 1 &  $ >80\% $\\
+\rowcolor{LRed} \textbf{3} & \textbf{15} &  $ \boldsymbol{70\%} $\\
+ 3 & 25 & $ 30\% $\\
+ 3 & 30 &  $ <20\% $ \\\hline
 
 \end{tabular}
 }
@@ -821,45 +822,57 @@ potenza marchio & livello di compressione & Detection stereo \\
 \begin{table}
 \scalebox{0.75}{
 \begin{tabular}{c | c }
-potenza del marchio & Detection stereo \\
-\hline \hline
-0.3 & 1 \\
-0.5 & 6 \\
-0.6 & 11\\
-\end{tabular}
-}
-\vspace{2mm}
-\caption{Statistica della detection in frequenza per video caricati su Youtube}
-\end{table}
-\begin{table}
-\scalebox{0.75}{
-\begin{tabular}{c | c }
 livello di compressione & PSNR(dB) \\
 \hline \hline
 15 		    & 46.0194 \\
 25 		    & 40.4861 \\
-YT 		    & 38.2039 \\
+\rowcolor{LRed} \textbf{YT} 		    & \textbf{38.2039} \\
 30 		    & 37.5587 \\
 \end{tabular}
 }
 \vspace{2mm}
 \caption{Valore medio di PSNR per diversi livelli di compressione}
 \end{table}
+\begin{table}
+\scalebox{0.75}{
+\begin{tabular}{c | c }
+potenza del marchio & Detection stereo \\
+\hline \hline
+0.3 & $<20\%$ \\
+0.5 & 20\% \\
+\rowcolor{LRed} \textbf{0.6} & \textbf{37\%}\\
+\end{tabular}
+}
+\vspace{2mm}
+\caption{Statistica della detection in frequenza per video caricati su Youtube}
+\end{table}
+
 \end{frame}
 \begin{frame}[t]{\textsc{Sintetizzazione di viste intermedie}}
-\vspace{-1em}
+
 \begin{figure}
   \includegraphics[width=0.6\textwidth]{./img/sintesi.png}  
   \caption{} 
   \label{fig:vsg1}
 \end{figure}
+\vspace{-3em}
+\begin{table}
+\scalebox{0.9}{
+\begin{tabular}{c  c  c 	c }
+ & vista 1/4B & vista 1/2B & vista 3/4B \\
+\hline
+Detection spaziale & $>90\%$  & $>80\% $  & $>80\% $  \\
+Detection in frequenza & 100\% & 100\% & $>90\%$ \\	
+\end{tabular}
+}
+\end{table}
 
 
 \end{frame}
 
 
 
-\begin{frame}[t]{\textsc{Test di invisibilit\`{a}: misure di qualit\`{a} }}
+\begin{frame}[t]{\textsc{Test di trasparenza: misure di qualit\`{a} }}
 \vspace{-13mm}
 \begin{columns}
 \begin{column}{5cm}
@@ -873,16 +886,16 @@ YT 		    & 38.2039 \\
 \end{center}
 \end{column}
 \begin{column}{5cm}
-\vspace{-17mm}
+\vspace{-8mm}
 \begin{center}
   \scalebox{0.65}{%
 $ Q_{View}(x,y) = [l(x,y)]^{\alpha} \cdot [c(x,y)]^{\beta} \cdot [\mathbf{{S}_{View}(x',y')]^{\gamma}} $
   }
 \end{center}
 
-\vspace{2mm}
-
+\vspace{1mm}
 \begin{center}
+
   \scalebox{0.65}{%
 $ Q_{Depth}(x,y) = [l(x,y)]^{\alpha} \cdot [c(x,y)]^{\beta} \cdot [\mathbf{{S}_{Depth}(x',y')]^{\gamma}} $
   }
@@ -906,7 +919,7 @@ $ Q_{Depth}(x,y) = [l(x,y)]^{\alpha} \cdot [c(x,y)]^{\beta} \cdot [\mathbf{{S}_{
 \end{frame}
 
 
-\begin{frame}[t]{\textsc{Test di invisibilit\`{a}: misure di qualit\`{a} }}
+\begin{frame}[t]{\textsc{Test di trasparenza: misure di qualit\`{a} }}
 \vspace{-3mm}
 \begin{figure}
   \includegraphics[width=0.9\textwidth]{./img_wat/qm_res.png}  
@@ -917,18 +930,18 @@ $ Q_{Depth}(x,y) = [l(x,y)]^{\alpha} \cdot [c(x,y)]^{\beta} \cdot [\mathbf{{S}_{
 
 \end{frame}
 
-\begin{frame}[t]{\textsc{Test di invisibilit\`{a}: PSNR}}
+\begin{frame}[t]{\textsc{Test di trasparenza: PSNR}}
 \setbeamertemplate{blocks}[rounded][shadow=false]
 \setbeamercolor{block title}{use=structure,fg=black,bg=lightgray} 
 \setbeamercolor{block body}{use=structure,fg=black,bg=lightgray} 
 \begin{block}{}
 
 \begin{itemize}
-\item Si \`{e} misurato l'impatto visivo tramite PSNR tra i frame originali e marchiati;
-\item valori tipici per video marchiati sono tra 30 e 50 dB.
+\item Si \`{e} misurato l'impatto visivo tramite PSNR tra i frame originali e marchiati, al variare della potenza del marchio
+\item valori tipici per video marchiati sono tra 30 e 50 dB
 \end{itemize}
 \end{block}
-
+\vspace{4mm}
 \begin{table}
 \scalebox{0.8}{
 \begin{tabular}{c | c }
@@ -936,11 +949,10 @@ potenza del marchio & PSNR(dB) \\
 \hline \hline
 0.3 		    & 46.0071 \\
 0.5		    & 45.9505 \\
-0.6		    & 45.9291 \\
+\textbf{0.6}		    & \textbf{45.9291} \\
 \end{tabular}
 }
-\vspace{2mm}
-\caption{Valore medio di PSNR al variare della potenza del marchio}
+
 \end{table}
 \end{frame}
 
@@ -972,7 +984,7 @@ Nel dominio spaziale:
 \begin{tabular}{c | c | c }
 CRF & potenza del marchio & True positive \\
 \hline \hline
-\rowcolor{LRed} 1 & 1 & 70\%\\
+\rowcolor{LRed}\textbf{ 1} & \textbf{1} & \textbf{70\%}\\
 15 & 1 & 40\%\\
 25 & 1 & $< 20\% $\\
 30 & 1 & $< 20\% $\\
@@ -1014,7 +1026,7 @@ Nel dominio della frequenza:
 CRF & potenza del marchio & detection stereo \\
 \hline \hline
 1 & 0.3 & 100\%\\
-\rowcolor{LRed} 15 & 0.3 & $>90\%$\\
+\rowcolor{LRed} \textbf{15} & \textbf{0.3} & $\boldsymbol{>90\%}$\\
 25 & 0.3 & 36.6\%\\
 30 & 0.3 & 6.6\%\\
 \end{tabular}
@@ -1031,8 +1043,10 @@ CRF & potenza del marchio & detection stereo \\
 \end{figure}
 \end{frame}
 
-\begin{frame}[t]{\textsc{Conclusioni}}
-Video stereo marchiato con potenza 0.3 compresso a fattore 15
+
+
+\begin{frame}[t]{\textsc{Video stereo marchiato con potenza 0.3 compresso a fattore 15
+}}
 \vspace{2mm}
 \begin{center}
 \movie[width=8cm,height=6cm,autostart,loop,poster]{}{./img_wat/anaglifico_03_kz.mkv}
