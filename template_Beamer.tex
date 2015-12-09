@@ -614,8 +614,12 @@ oppure
 \setbeamercolor{block body}{use=structure,fg=black,bg=lightgray} 
 \begin{block}{Obiettivi:}
 \center{\begin{itemize}
-\item Pixel corrispondenti marchiati nello stesso modo;
-\item Marchio inserito spazialmente ma rilevabile in frequenza.
+\item Pixel corrispondenti marchiati nello stesso modo
+\begin{itemize}
+\item Non controllabile in frequenza
+\item Marchio inserito spazialmente
+\end{itemize}
+
 \end{itemize}}
 \end{block}
 \end{frame}
@@ -668,8 +672,8 @@ $\boldsymbol{ \alpha|L||w|e^{\{j(\phi_{L}+\phi{w})\}}} $
 \end{block}
 \begin{block}{Soluzione:}
 		\begin{itemize}
-		\item \textbf{modulo} \textbf{marchio}: modulo della vista sinistra ricostruita a partire dai pixel della vista destra;
-		\item \textbf{fase} \textbf{marchio}: fase della vista sinistra sommata a quella del marchio di riferimento; 
+		\item \textbf{modulo} \textbf{marchio}: modulo della vista sinistra ricostruita a partire dai pixel della vista destra
+		\item \textbf{fase} \textbf{marchio}: fase della vista sinistra sommata a quella del marchio di riferimento
 		\end{itemize}
 \end{block}
 
@@ -719,9 +723,9 @@ $\boldsymbol{ r_{w} = r + \frac{1}{MN}\sum\sum(\alpha|R(u,v)^{**}||w|e^{\{j(\phi
 \setbeamercolor{block body}{use=structure,fg=black,bg=lightgray} 
 \begin{block}{Detection basata su soglia:}
 \center{\begin{itemize}
-\item generazione marchio;
-\item calcolo likelihood $\mathbf{L(y)}$ e soglia $\boldsymbol{\lambda}$ con il criterio di Neyman-Pearson;
-\item comparazione $\mathbf{L(y)}$ con $\boldsymbol{\lambda}$ e decisione.
+\item generazione marchio
+\item calcolo likelihood $\mathbf{L(y)}$ e soglia $\boldsymbol{\lambda}$ con il criterio di Neyman-Pearson
+\item comparazione $\mathbf{L(y)}$ con $\boldsymbol{\lambda}$ e decisione
 \end{itemize}}
 \end{block}
 \end{frame}
@@ -738,7 +742,7 @@ $\boldsymbol{ r_{w} = r + \frac{1}{MN}\sum\sum(\alpha|R(u,v)^{**}||w|e^{\{j(\phi
 \begin{section}{Risultati sperimentali}
 
 \begin{frame}[t]{\textsc{Risultati sperimentali}}
-Test effettuati su:
+
 \begin{itemize}
 \item sequenza video di 1 minuto creata dal \textbf{dataset Tsukuba}
 \item frame stereo 1280x480
@@ -760,13 +764,13 @@ Test effettuati su:
 %\setbeamercolor{block title}{use=structure,fg=black,bg=lightgray} 
 \setbeamercolor{block body}{use=structure,fg=black,bg=lightgray} 
 \begin{block}{Compressione:}
-Si studia la degradazione del marchio dovuta alla compressione del video, in relazione alla potenza di inserimento.
+Si studia la degradazione del marchio dovuta alla compressione del video, in relazione alla potenza di inserimento
 \end{block}
 \begin{block}{Distribuzione web:}
-Si studia la resistenza del marchio in video che sono stati caricati su Youtube e successivamente scaricati.
+Si studia la resistenza del marchio in video che sono stati caricati su Youtube e successivamente scaricati
 \end{block}
 \begin{block}{Sintetizzazione di viste intermedie:}
-Si studia la risposta del marchio in caso di creazione di viste sintetiche a tre diverse distanze dalla vista sinistra.
+Si studia la risposta del marchio in caso di creazione di viste sintetiche a tre diverse distanze dalla vista sinistra
 \end{block}
 
 \end{frame}
@@ -792,9 +796,10 @@ potenza marchio & livello di compressione & Detection stereo \\
 
 \end{table}
 \begin{center}
-\scalebox{0.7}{Statistica della detection spaziale}
+\vspace{-0.5em}
+\scalebox{0.7}{\textbf{Statistica della detection spaziale}}
 \end{center}
-\vspace{-2mm}
+\vspace{0.5em}
 \begin{table}
 \scalebox{0.6}{
 \begin{tabular}{c | c | c }
@@ -807,12 +812,13 @@ potenza marchio & livello di compressione & Detection stereo \\
  0.6 & 1 & 100\%  \\
  0.6 & 15 & 100\%  \\
 \rowcolor{LRed} \textbf{0.6} & \textbf{25} & \textbf{86.6\%} \\
- 0.6 & 30 & 50\% \\
+ 0.6 & 30 & 50\% \\\hline
 \end{tabular}
 }
 \end{table}
 \begin{center}
-\scalebox{0.7}{Statistica della detection in frequenza}
+\vspace{-0.5em}
+\scalebox{0.7}{\textbf{Statistica della detection in frequenza}}
 \end{center}
 \end{frame}
 
@@ -956,13 +962,7 @@ potenza del marchio & PSNR(dB) \\
 \end{table}
 \end{frame}
 
-\end{section}
-
-\begin{section}{Conclusioni}
-\subsection{Conclusioni}
-
-
-\begin{frame}[t]{\textsc{Conclusioni}}
+\begin{frame}[t]{\textsc{Risultati sperimentali}}
 Nel dominio spaziale:
 \begin{columns}
 \begin{column}{5cm}
@@ -1003,7 +1003,7 @@ CRF & potenza del marchio & True positive \\
 \end{frame}
 
 
-\begin{frame}[t]{\textsc{Conclusioni}}
+\begin{frame}[t]{\textsc{Risultati sperimentali}}
 Nel dominio della frequenza:
 \begin{columns}
 \begin{column}{5cm}
@@ -1045,7 +1045,7 @@ CRF & potenza del marchio & detection stereo \\
 
 
 
-\begin{frame}[t]{\textsc{Video stereo marchiato con potenza 0.3 compresso a fattore 15
+\begin{frame}[t]{\textsc{Video sblinda stereo marchiato con potenza 0.3 compresso a fattore 15
 }}
 \vspace{2mm}
 \begin{center}
